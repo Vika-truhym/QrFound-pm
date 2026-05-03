@@ -1,1 +1,1 @@
-console.log("Version A - from feature A");
+console.log("A version");
