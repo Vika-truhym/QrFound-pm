@@ -12,7 +12,9 @@ window.closeModal = function() {
 };
 
 window.openScanner = function() {
-    document.getElementById("scannerOverlay").classList.add("active");
+    const overlay = document.getElementById("scannerOverlay");
+    if (overlay) overlay.classList.add("active");
+    
     html5QrCode = new Html5Qrcode("reader");
     const config = { fps: 10, qrbox: { width: 250, height: 250 } };
     
@@ -23,23 +25,31 @@ window.openScanner = function() {
             window.location.href = decodedText;
             window.closeScanner();
         }
-    ).catch(err => console.error("Scanner error:", err));
+    ).catch(() => {
+        // Прибрали err, просто виводимо повідомлення в консоль
+        console.error("Scanner error occurred");
+    });
 };
 
 window.closeScanner = function() {
-    document.getElementById("scannerOverlay").classList.remove("active");
+    const overlay = document.getElementById("scannerOverlay");
+    if (overlay) overlay.classList.remove("active");
+    
     if (html5QrCode) {
         html5QrCode.stop().then(() => {
             html5QrCode = null;
-        }).catch(err => console.log(err));
+        }).catch(() => {
+            // Прибрали err тут теж
+            console.log("Error stopping the scanner");
+        });
     }
 };
 
 window.onclick = function(event) {
     const modalCreate = document.getElementById("overlay");
     const modalScanner = document.getElementById("scannerOverlay");
-    if (event.target == modalCreate) window.closeModal();
-    if (event.target == modalScanner) window.closeScanner();
+    if (event.target === modalCreate) window.closeModal();
+    if (event.target === modalScanner) window.closeScanner();
 };
 
 console.log("Vite Production Build Loaded Successfully");
