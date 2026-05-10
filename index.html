@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>QR-Found | Lost & Found System</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+
+    <header class="custom-header">
+        <a href="/" class="header-logo-link">
+            <img src="/images/logo.png" width="100" alt="Home Logo">
+        </a>
+    </header>
+
+    <div style="margin: 10px 0; padding: 5px; border: 1px dashed #ccc; display: inline-block;">
+        <span style="color: green; font-weight: bold;">Режим: Production Mode</span>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <div class="hero-title">
+                <img src="/images/qr-logo.png" class="qr-icon" alt="QR Icon">
+                <div class="logo-big">QR-Found</div>
+            </div>
+
+            <div class="hero-image">
+                <img src="/images/big-key.png" class="big-key" alt="Main Key">
+            </div>
+
+            <div class="title">Lost & Found <span>Smart QR System</span></div>
+
+            <div class="description">
+                Create a smart digital tag that helps people return your lost items by contacting you instantly through QR scanning.
+            </div>
+
+            <div class="buttons-group">
+                <button class="btn-main btn-primary" onclick="openModal()">Create QR-code</button>
+                <button class="btn-main btn-outline" onclick="openScanner()">Scan QR-code</button>
+            </div>
+        </div>
+
+        <div class="how-it-works-section">
+            <h2 class="how-title">How it works?</h2>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <img src="/images/step1.png" alt="Step 1">
+                    <div class="step-num">1</div>
+                    <div class="step-text">Create your QR-code</div>
+                </div>
+                <div class="step-card">
+                    <img src="/images/step2.png" alt="Step 2">
+                    <div class="step-num">2</div>
+                    <div class="step-text">Attach it to your item</div>
+                </div>
+                <div class="step-card">
+                    <img src="/images/step3.png" alt="Step 3">
+                    <div class="step-num">3</div>
+                    <div class="step-text">If lost, a finder scans the code</div>
+                </div>
+                <div class="step-card">
+                    <img src="/images/step4.png" alt="Step 4">
+                    <div class="step-num">4</div>
+                    <div class="step-text">They contact you directly</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="motivation-text">
+            Don't wait for things to disappear! <br><br>
+            Use our service to create QR codes today and protect as many of your belongings as possible. Safety is just one scan away!
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <div class="close-btn" onclick="closeModal()">✕</div>
+            
+            <div class="modal-info">
+                <div class="gradient-title">Create your QR code</div>
+                Fill in a few simple details so your item can be returned to you if it gets lost.
+            </div>
+
+            <form action="/create" method="POST">
+                <input type="text" name="item_name" placeholder="What is your item? (english)" required pattern="[A-Za-z\s]+" title="English letters only">
+                <input type="text" name="owner_name" placeholder="Your name (english)" required pattern="[A-Za-z\s]+" title="English letters only">
+                
+                <div class="phone-row" style="display: flex; gap: 10px;">
+                    <select name="country_code" class="phone-code" style="width: 110px;">
+                        <option value="+380">🇺🇦 +380</option>
+                        <option value="+48">🇵🇱 +48</option>
+                        <option value="+49">🇩🇪 +49</option>
+                        <option value="+1">🇺🇸 +1</option>
+                    </select>
+                    <input type="tel" name="phone" class="phone-input" placeholder="Phone (9 digits)" required pattern="[0-9]{9}" maxlength="9" style="flex: 1;">
+                </div>
+
+                <input type="email" name="email" placeholder="Email address" required>
+                <input type="text" name="telegram" placeholder="@telegram username" required>
+
+                <button class="btn-main btn-primary" type="submit" style="width:100%; max-width:100%; margin-top:10px;">
+                    Generate QR Code
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="overlay" id="scannerOverlay">
+        <div class="modal">
+            <div class="close-btn" onclick="closeScanner()">✕</div>
+            <div class="gradient-title">Scan QR Code</div>
+            <div id="reader"></div>
+        </div>
+    </div>
+
+    <footer class="custom-footer">
+        <div style="text-align: center;">
+            <p style="margin: 0; font-weight: 800;">&copy; 2026 QR-Found Project</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
