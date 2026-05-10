@@ -26,7 +26,6 @@ window.openScanner = function() {
             window.closeScanner();
         }
     ).catch(() => {
-        // Прибрали err, просто виводимо повідомлення в консоль
         console.error("Scanner error occurred");
     });
 };
@@ -39,7 +38,6 @@ window.closeScanner = function() {
         html5QrCode.stop().then(() => {
             html5QrCode = null;
         }).catch(() => {
-            // Прибрали err тут теж
             console.log("Error stopping the scanner");
         });
     }
