@@ -25,11 +25,9 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        # Використовуємо install замість ci, щоб він сам доставив те, чого не вистачає
         run: npm install
 
       - name: Run lint
-        # Додаємо "|| true", щоб навіть якщо лінтер зламався, пайплайн йшов далі
         run: npm run lint || echo "Linting failed but we move on"
         continue-on-error: true
 

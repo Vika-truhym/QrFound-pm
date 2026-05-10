@@ -1,3 +1,4 @@
+/* global Html5Qrcode */
 // main.js
 let html5QrCode;
 

@@ -4,7 +4,6 @@ const router = express.Router();
 const Item = require("../models/Item");
 const QRCode = require("qrcode");
 const PDFDocument = require("pdfkit");
-const mongoose = require("mongoose");
 
 // =======================
 // HOME PAGE
@@ -32,7 +31,7 @@ router.post("/create", async (req, res) => {
             qr: qrCodeImage,
             itemId: newItem._id,
         });
-    } catch (err) {
+    } catch (_err) {
         console.error(err);
         res.status(500).send("Error creating item");
     }
@@ -49,7 +48,7 @@ router.get("/item/:id", async (req, res) => {
         if (!item) return res.status(404).send("Item not found");
 
         res.render("item", { item });
-    } catch (err) {
+    } catch (_err) {
         res.status(500).send("Server error");
     }
 });
@@ -65,7 +64,7 @@ router.get("/qr/:id", async (req, res) => {
 
         res.setHeader("Content-Type", "image/png");
         res.send(qrBuffer);
-    } catch (err) {
+    } catch (_err) {
         res.status(500).send("QR error");
     }
 });
@@ -112,7 +111,7 @@ router.get("/pdf/:id", async (req, res) => {
         });
 
         doc.end();
-    } catch (err) {
+    } catch (_err) {
         console.error(err);
         res.status(500).send("PDF error");
     }
