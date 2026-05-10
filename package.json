@@ -4,14 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-  "start": "node server.js",
-  "test": "jest",
-  "test:coverage": "jest --coverage",
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "lint": "eslint . --fix",
-  "format": "prettier --write \"**/*.{js,json,css,ejs}\""
+    "start": "node server.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write \"**/*.{js,json,css,ejs}\""
   },
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
     "prettier": "^3.8.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "vite": "^8.0.11",
-    "vite-plugin-istanbul": "^8.0.0"
+    "vite": "^8.0.11"
   }
 }
