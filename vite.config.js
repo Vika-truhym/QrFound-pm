@@ -1,8 +1,16 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import istanbul from 'vite-plugin-istanbul'
 
 export default defineConfig({
-  // Базова конфігурація для збірки проєкту (Лаба №3)
-  build: {
-    outDir: 'dist',
+  plugins: [
+    react(),
+    istanbul({
+      cypress: true,
+      requireEnv: false
+    })
+  ],
+  server: {
+    port: 3000
   }
-});
+})

@@ -4,7 +4,7 @@ const router = express.Router();
 const Item = require("../models/Item");
 const QRCode = require("qrcode");
 const PDFDocument = require("pdfkit");
-
+const mongoose = require("mongoose");
 
 // =======================
 // HOME PAGE
@@ -12,7 +12,6 @@ const PDFDocument = require("pdfkit");
 router.get("/", (req, res) => {
     res.render("index", {
         openModal: req.query.openModal === "true",
-        appStatus: process.env.VITE_APP_STATUS || "Development"
     });
 });
 
@@ -51,7 +50,6 @@ router.get("/item/:id", async (req, res) => {
 
         res.render("item", { item });
     } catch (err) {
-        console.error(err);
         res.status(500).send("Server error");
     }
 });
@@ -68,7 +66,6 @@ router.get("/qr/:id", async (req, res) => {
         res.setHeader("Content-Type", "image/png");
         res.send(qrBuffer);
     } catch (err) {
-        console.error(err);
         res.status(500).send("QR error");
     }
 });

@@ -6,12 +6,7 @@
   "scripts": {
   "start": "node server.js",
   "test": "jest",
-  "test:coverage": "jest --coverage",
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "lint": "eslint . --fix",
-  "format": "prettier --write \"**/*.{js,json,css,ejs}\""
+  "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -37,17 +32,13 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "^4.0.3",
-    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.59.1",
-    "cross-env": "^10.1.0",
     "cypress": "^15.14.2",
-    "eslint": "^10.3.0",
     "jest": "^30.4.2",
     "playwright": "^1.59.1",
-    "prettier": "^3.8.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "vite": "^8.0.11",
+    "vite": "^8.0.10",
     "vite-plugin-istanbul": "^8.0.0"
   }
 }
