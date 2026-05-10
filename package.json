@@ -4,8 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+  "start": "node server.js",
+  "test": "jest",
+  "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,23 @@
   "homepage": "https://github.com/Vika-truhym/QrFound-pm#readme",
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "mongoose": "^9.6.1"
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.22.1",
+    "jspdf": "^2.5.1",
+    "mongoose": "^7.8.9",
+    "pdfkit": "^0.18.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^4.0.3",
+    "@playwright/test": "^1.59.1",
+    "cypress": "^15.14.2",
+    "jest": "^30.4.2",
+    "playwright": "^1.59.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "vite": "^8.0.10",
+    "vite-plugin-istanbul": "^8.0.0"
   }
 }
