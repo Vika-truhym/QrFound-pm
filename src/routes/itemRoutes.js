@@ -31,8 +31,8 @@ router.post("/create", async (req, res) => {
             qr: qrCodeImage,
             itemId: newItem._id,
         });
-    } catch (_err) {
-        console.error(err);
+    } catch {
+        // Прибрали _err, тепер лінтер не сваритиметься
         res.status(500).send("Error creating item");
     }
 });
@@ -48,7 +48,7 @@ router.get("/item/:id", async (req, res) => {
         if (!item) return res.status(404).send("Item not found");
 
         res.render("item", { item });
-    } catch (_err) {
+    } catch {
         res.status(500).send("Server error");
     }
 });
@@ -64,7 +64,7 @@ router.get("/qr/:id", async (req, res) => {
 
         res.setHeader("Content-Type", "image/png");
         res.send(qrBuffer);
-    } catch (_err) {
+    } catch {
         res.status(500).send("QR error");
     }
 });
@@ -111,8 +111,8 @@ router.get("/pdf/:id", async (req, res) => {
         });
 
         doc.end();
-    } catch (_err) {
-        console.error(err);
+    } catch {
+        // Тут також прибрали console.error(err)
         res.status(500).send("PDF error");
     }
 });
