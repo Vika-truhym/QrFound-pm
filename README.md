@@ -1,3 +1,4 @@
+[![CI/CD Pipeline](https://github.com/Vika-truhym/QrFound-pm/actions/workflows/main.yml/badge.svg)](https://github.com/Vika-truhym/QrFound-pm/actions/workflows/main.yml)
 # QR-Found 
 
 ## Description
