@@ -1,6 +1,12 @@
 /* global Html5Qrcode */
 // main.js
 let html5QrCode;
+import posthog from 'posthog-js';
+
+posthog.init('phc_ycoKJe9Ynn7pv7vzDWZRLF5HZkMGu43S3WXkr5Virrbd', {
+api_host: 'https://us.i.posthog.com',
+person_profiles: 'identified_only', 
+});
 
 // Робимо функції глобальними, щоб вони працювали з onclick в HTML
 window.openModal = function() {
@@ -49,5 +55,7 @@ window.onclick = function(event) {
     if (event.target === modalCreate) window.closeModal();
     if (event.target === modalScanner) window.closeScanner();
 };
+
+
 
 console.log("Vite Production Build Loaded Successfully");

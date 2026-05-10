@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-  "start": "node server.js",
-  "test": "jest --testMatch=\"**/*.test.js\"", 
-  "test:coverage": "jest --coverage",
+    "start": "node server.js",
+    "test": "jest --testMatch=\"**/*.test.js\"",
+    "test:coverage": "jest --coverage",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -33,6 +33,7 @@
     "jspdf": "^2.5.1",
     "mongoose": "^7.8.9",
     "pdfkit": "^0.18.0",
+    "posthog-js": "^1.372.10",
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
